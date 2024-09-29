@@ -6,3 +6,4 @@ Install:
 4. mongoose (npm i mongoose)
 5. bcryptjs (npm i --save-dev @types/bcryptjs)
 6. next-auth (npm install next-auth)
+7. ai openai (npm install ai openai)
