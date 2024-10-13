@@ -15,6 +15,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormControl
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
@@ -115,6 +116,7 @@ export default function SignUpForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Username</FormLabel>
+                  <FormControl>
                   <Input
                     {...field}
                     onChange={(e) => {
@@ -122,6 +124,7 @@ export default function SignUpForm() {
                       setUsername(e.target.value);
                     }}
                   />
+                  </FormControl>
                   {isCheckingUsername && <Loader2 className="animate-spin" />}
                   {!isCheckingUsername && usernameMessage && (
                     <p
@@ -144,7 +147,9 @@ export default function SignUpForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
-                  <Input {...field} name="email" />
+                  <FormControl>
+                    <Input placeholder="shadcn" {...field} name="email"  />
+                  </FormControl>
                   <p className='text-muted text-gray-400 text-sm'>We will send you a verification code</p>
                   <FormMessage />
                 </FormItem>
@@ -157,7 +162,9 @@ export default function SignUpForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
+                  <FormControl>
                   <Input type="password" {...field} name="password" />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
