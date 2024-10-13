@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDebounce } from 'usehooks-ts';
 import * as z from 'zod';
+
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -83,7 +84,8 @@ export default function SignUpForm() {
       const axiosError = error as AxiosError<ApiResponse>;
 
       // Default error message
-      let errorMessage = axiosError.response?.data.message
+      let errorMessage = axiosError.response?.data.message;
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       ('There was a problem with your sign-up. Please try again.');
 
       toast({
@@ -101,7 +103,7 @@ export default function SignUpForm() {
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Join Entry Message
+            Join True Feedback
           </h1>
           <p className="mb-4">Sign up to start your anonymous adventure</p>
         </div>
@@ -136,7 +138,6 @@ export default function SignUpForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               name="email"
               control={form.control}
@@ -161,12 +162,11 @@ export default function SignUpForm() {
                 </FormItem>
               )}
             />
-
             <Button type="submit" className='w-full' disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Please wait
+                  Please wait ...
                 </>
               ) : (
                 'Sign Up'
@@ -174,7 +174,6 @@ export default function SignUpForm() {
             </Button>
           </form>
         </Form>
-
         <div className="text-center mt-4">
           <p>
             Already a member?{' '}
